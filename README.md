@@ -1,3 +1,5 @@
 # ChatApp 
-Xây dựng ứng dụng chat realtime sử dụng .NET core, Docker microservice và xác thực Auth0
+Xây dựng ứng dụng chat realtime sử dụng 
+- .NET core
+- Xác thực Auth0
 - Deploy CI/CD Azure
