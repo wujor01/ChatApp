@@ -21,7 +21,7 @@ on:
       - '**/*.gitattributes'
 
 env:
-  AZURE_WEBAPP_NAME: aspnet-core-sample-deploy  # set this to your application's name
+  AZURE_WEBAPP_NAME: chatapp  # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './published'      # set this to the path to your web app project, defaults to the repository root
   NETCORE_VERSION: '5.0.x'                    # set this to the .NET Core version to use
 
