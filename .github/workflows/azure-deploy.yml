@@ -22,7 +22,7 @@ on:
 
 env:
   AZURE_WEBAPP_NAME: ChatAppKMA  # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './published'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: './myapp'      # set this to the path to your web app project, defaults to the repository root
   NETCORE_VERSION: '5.0.x'                    # set this to the .NET Core version to use
 
 jobs:
@@ -50,15 +50,14 @@ jobs:
       run: dotnet publish --configuration Release --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
     - name: 'Deploy to Azure WebApp'
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v1
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
-    - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+    - name: Publish Artifacts
+      uses: actions/upload-artifact@v1.0.0
       with:
-        name: .net-app
+        name: webapp
         path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
